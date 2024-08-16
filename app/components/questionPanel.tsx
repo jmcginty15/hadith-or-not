@@ -2,10 +2,20 @@ import { useState } from "react";
 
 import { questions } from "~/utils/questions";
 
-const getRandomHadithIndex = () => Math.floor(Math.random() * questions.length);
-
 export default function QuestionPanel() {
-  const [hadith, setHadith] = useState(questions[getRandomHadithIndex()]);
+  const firstHadithIndex = Math.floor(Math.random() * questions.length);
+  const [hadith, setHadith] = useState<{
+    title: string;
+    text: string;
+    isReal: boolean;
+  }>(questions[firstHadithIndex]);
+
+  const firstRemainingHadiths = [...questions];
+  firstRemainingHadiths.splice(firstHadithIndex, 1);
+  const [remainingHadiths, setRemainingHadiths] = useState<
+    { title: string; text: string; isReal: boolean }[]
+  >(firstRemainingHadiths);
+
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
 
   const answer = (response: boolean) =>
@@ -13,7 +23,12 @@ export default function QuestionPanel() {
 
   const reset = () => {
     setIsCorrect(null);
-    setHadith(questions[getRandomHadithIndex()]);
+    const choices = remainingHadiths.length ? remainingHadiths : questions;
+    const nextHadithIndex = Math.floor(Math.random() * choices.length);
+    setHadith(choices[nextHadithIndex]);
+    const nextRemainingHadiths = [...choices];
+    nextRemainingHadiths.splice(nextHadithIndex, 1);
+    setRemainingHadiths(nextRemainingHadiths);
   };
 
   return (
