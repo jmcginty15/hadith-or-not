@@ -10,11 +10,15 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import stylesheetQuestionPanel from "~/components/questionPanel.css";
 import { getUser } from "~/session.server";
+import stylesheetBase from "~/styles.css";
 import stylesheet from "~/tailwind.css";
 
 export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
+  { rel: "stylesheet", href: stylesheetBase },
+  { rel: "stylesheet", href: stylesheetQuestionPanel },
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 

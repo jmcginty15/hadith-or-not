@@ -1,0 +1,78 @@
+.QuestionPanel {
+  width: 100%;
+  height: fit-content;
+  padding: 1rem;
+  text-align: center;
+}
+
+.QuestionPanel-title {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+
+.QuestionPanel-text {
+  font-size: 20px;
+  margin: 1rem 0;
+}
+
+.QuestionPanel-buttonBox {
+  display: grid;
+  grid-template-columns: calc(50% - 0.5rem) calc(50% - 0.5rem);
+  column-gap: 1rem;
+  margin-top: 1rem;
+}
+
+.QuestionPanel-button {
+  width: 100%;
+  padding: 0.5rem;
+  font-size: 20px;
+}
+
+.QuestionPanel-buttonReal {
+  border: solid 2px green;
+  background-color: rgba(0, 128, 0, 0.5);
+}
+
+.QuestionPanel-buttonReal:hover {
+  transition: 0.5s;
+  background-color: green;
+}
+
+.QuestionPanel-buttonFake {
+  border: solid 2px red;
+  background-color: rgba(255, 0, 0, 0.5);
+}
+
+.QuestionPanel-buttonFake:hover {
+  transition: 0.5s;
+  background-color: red;
+}
+
+.QuestionPanel-buttonNeutral {
+  margin-top: 1rem;
+  border: solid 2px yellow;
+  background-color: rgba(255, 255, 0, 0.5);
+}
+
+.QuestionPanel-buttonNeutral:hover {
+  transition: 0.5s;
+  background-color: yellow;
+}
+
+.QuestionPanel-answerBox {
+  width: 100%;
+}
+
+.QuestionPanel-answerTitle {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.QuestionPanel-answerCorrect {
+  color: green;
+}
+
+.QuestionPanel-answerIncorrect {
+  color: red;
+}
