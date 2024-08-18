@@ -3,6 +3,7 @@ import type { MetaFunction } from "@remix-run/node";
 import camel from "~/assets/camel.jpeg";
 import title from "~/assets/main-text.png";
 import muhammad from "~/assets/muhammad.jpeg";
+import Footer from "~/components/footer";
 import QuestionPanel from "~/components/questionPanel";
 
 export const meta: MetaFunction = () => [{ title: "Remix Notes" }];
@@ -20,6 +21,7 @@ export default function Index() {
         className="main-image"
         style={{ backgroundImage: `url(${muhammad})` }}
       />
+      <Footer />
     </main>
   );
 }

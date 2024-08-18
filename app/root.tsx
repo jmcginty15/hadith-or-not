@@ -10,6 +10,7 @@ import {
   ScrollRestoration,
 } from "@remix-run/react";
 
+import stylesheetFooter from "~/components/footer.css";
 import stylesheetQuestionPanel from "~/components/questionPanel.css";
 import { getUser } from "~/session.server";
 import stylesheetBase from "~/styles.css";
@@ -19,6 +20,7 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesheet },
   { rel: "stylesheet", href: stylesheetBase },
   { rel: "stylesheet", href: stylesheetQuestionPanel },
+  { rel: "stylesheet", href: stylesheetFooter },
   ...(cssBundleHref ? [{ rel: "stylesheet", href: cssBundleHref }] : []),
 ];
 
