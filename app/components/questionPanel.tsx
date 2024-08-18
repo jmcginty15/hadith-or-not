@@ -1,20 +1,28 @@
 import { useState } from "react";
 
-import { questions } from "~/utils/questions";
+import { realHadiths, fakeHadiths } from "~/utils/questions";
 
 export default function QuestionPanel() {
-  const firstHadithIndex = Math.floor(Math.random() * questions.length);
+  const realSelect = Math.floor(Math.random() * 2);
+  const list = realSelect === 1 ? realHadiths : fakeHadiths;
+  const firstHadithIndex = Math.floor(Math.random() * list.length);
   const [hadith, setHadith] = useState<{
     title: string;
     text: string;
     isReal: boolean;
-  }>(questions[firstHadithIndex]);
+  }>(list[firstHadithIndex]);
 
-  const firstRemainingHadiths = [...questions];
-  firstRemainingHadiths.splice(firstHadithIndex, 1);
-  const [remainingHadiths, setRemainingHadiths] = useState<
+  const firstRemainingRealHadiths = [...realHadiths];
+  const firstRemainingFakeHadiths = [...fakeHadiths];
+  if (realSelect === 1) firstRemainingRealHadiths.splice(firstHadithIndex, 1);
+  else if (realSelect === 0)
+    firstRemainingFakeHadiths.splice(firstHadithIndex, 1);
+  const [remainingRealHadiths, setRemainingRealHadiths] = useState<
     { title: string; text: string; isReal: boolean }[]
-  >(firstRemainingHadiths);
+  >(firstRemainingRealHadiths);
+  const [remainingFakeHadiths, setRemainingFakeHadiths] = useState<
+    { title: string; text: string; isReal: boolean }[]
+  >(firstRemainingFakeHadiths);
 
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
 
@@ -23,12 +31,22 @@ export default function QuestionPanel() {
 
   const reset = () => {
     setIsCorrect(null);
-    const choices = remainingHadiths.length ? remainingHadiths : questions;
-    const nextHadithIndex = Math.floor(Math.random() * choices.length);
-    setHadith(choices[nextHadithIndex]);
-    const nextRemainingHadiths = [...choices];
-    nextRemainingHadiths.splice(nextHadithIndex, 1);
-    setRemainingHadiths(nextRemainingHadiths);
+
+    const realSelect = Math.floor(Math.random() * 2);
+    const list = realSelect === 1 ? remainingRealHadiths : remainingFakeHadiths;
+    const ogList = realSelect === 1 ? realHadiths : fakeHadiths;
+    const setHadiths =
+      realSelect === 1 ? setRemainingRealHadiths : setRemainingFakeHadiths;
+
+    const nextHadithIndex = Math.floor(Math.random() * list.length);
+    setHadith(list[nextHadithIndex]);
+
+    if (list.length === 1) setHadiths([...ogList]);
+    else {
+      const nextList = [...list];
+      nextList.splice(nextHadithIndex, 1);
+      setHadiths(nextList);
+    }
   };
 
   return (

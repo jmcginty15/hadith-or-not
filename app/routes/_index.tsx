@@ -6,7 +6,7 @@ import muhammad from "~/assets/muhammad.jpeg";
 import Footer from "~/components/footer";
 import QuestionPanel from "~/components/questionPanel";
 
-export const meta: MetaFunction = () => [{ title: "Remix Notes" }];
+export const meta: MetaFunction = () => [{ title: "Hadith or Not?" }];
 
 export default function Index() {
   return (

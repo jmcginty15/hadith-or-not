@@ -1,4 +1,4 @@
-export const questions: { title: string; text: string; isReal: boolean }[] = [
+export const realHadiths: { title: string; text: string; isReal: boolean }[] = [
   {
     title: "The Hadith of the Talking Animals",
     text: `"A camel came to the Prophet Muhammad and knelt before him, and then spoke, saying, 'O Prophet of Allah, I am oppressed.'"`,
@@ -49,6 +49,9 @@ export const questions: { title: string; text: string; isReal: boolean }[] = [
     text: `"A roasted mastigure (a type of lizard) was brought to the Prophet, and he stretched his hand towards it to eat it. But it was said to him, 'It is a mastigure.' So, he withdrew his hand. Khalid asked, 'Is it unlawful to eat?' He said, 'No, but it is not found in the land of my people, and I feel aversion towards it.' So, Khalid took and ate it while Allah's Apostle was looking at him."`,
     isReal: true,
   },
+];
+
+export const fakeHadiths: { title: string; text: string; isReal: boolean }[] = [
   {
     title: "The Hadith of the Whispering Tree",
     text: `"The Prophet Muhammad once said, 'A tree whispered secrets to me under its branches, sharing tales of ancient times and forgotten lands.'"`,
