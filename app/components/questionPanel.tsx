@@ -2,7 +2,11 @@ import { useState } from "react";
 
 import { realHadiths, fakeHadiths } from "~/utils/questions";
 
-export default function QuestionPanel() {
+export default function QuestionPanel({
+  rotateImages,
+}: {
+  rotateImages: () => void;
+}) {
   const realSelect = Math.floor(Math.random() * 2);
   const list = realSelect === 1 ? realHadiths : fakeHadiths;
   const firstHadithIndex = Math.floor(Math.random() * list.length);
@@ -47,6 +51,8 @@ export default function QuestionPanel() {
       nextList.splice(nextHadithIndex, 1);
       setHadiths(nextList);
     }
+
+    rotateImages();
   };
 
   return (
