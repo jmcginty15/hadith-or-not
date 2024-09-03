@@ -1,6 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 import { useState } from "react";
 
+import ak from "~/assets/ak-rotated-right.jpeg";
 import title from "~/assets/main-text.png";
 import Footer from "~/components/footer";
 import QuestionPanel from "~/components/questionPanel";
@@ -32,12 +33,16 @@ export default function Index() {
       <img className="main-title" src={title} alt="hadith-or-not-text" />
       <div
         className="main-image"
-        style={{ backgroundImage: `url(${images[imageIndices[0]]})` }}
+        style={{
+          backgroundImage: `url(${images[imageIndices[0]]})`,
+        }}
       />
       <QuestionPanel rotateImages={rotateImages} />
       <div
         className="main-image"
-        style={{ backgroundImage: `url(${images[imageIndices[1]]})` }}
+        style={{
+          backgroundImage: `url(${imageIndices[1] === 2 ? ak : images[imageIndices[1]]})`,
+        }}
       />
       <Footer />
     </main>

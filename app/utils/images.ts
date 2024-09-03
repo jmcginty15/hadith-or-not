@@ -1,4 +1,4 @@
-import ak from "~/assets/ak.jpeg";
+import ak from "~/assets/ak-rotated-left.jpeg";
 import bombTruck from "~/assets/bomb-truck.jpeg";
 import camel from "~/assets/camel.jpeg";
 import muhammad from "~/assets/muhammad.jpeg";
